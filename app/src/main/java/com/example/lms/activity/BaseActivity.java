@@ -49,7 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         nameLoginTextView.setText(fullName);
         profileButton.setOnClickListener(v -> showProfileMenu());
     }
-    
+
     protected void setupSearchBar() {
         // Ánh xạ các view trong thanh tìm kiếm
         searchEditText = findViewById(R.id.searchEditText);
