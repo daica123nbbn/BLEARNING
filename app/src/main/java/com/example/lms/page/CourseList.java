@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lms.MainActivity;
 import com.example.lms.R;
+import com.example.lms.activity.BaseActivity;
 import com.example.lms.adapter.CourseAdapter;
 import com.example.lms.models.Course;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseList extends AppCompatActivity {
+public class CourseList extends BaseActivity {
     List<Course> courseList;
     RecyclerView courseRecyclerView;
     CourseAdapter courseAdapter;
@@ -27,6 +28,10 @@ public class CourseList extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+
+        setupNavigationBar();
+
+        setupSearchBar();
 
         courseRecyclerView = findViewById(R.id.allCourseRecyclerview);
         LinearLayoutManager layoutManagerAllCourse = new LinearLayoutManager(this);

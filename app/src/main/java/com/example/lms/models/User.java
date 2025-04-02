@@ -8,19 +8,19 @@ public class User {
     private String email;
     private String imageUrl;
     private List<String> enrolledCourses;
-    private String walletAddress;
+    private String password; // Thay walletAddress bằng password
     private String jobTitle;
     private float rating;
     private String review;
 
     // Constructor
-    public User(String id, String name, String email, String imageUrl, List<String> enrolledCourses, String walletAddress, String jobTitle, float rating, String review) {
+    public User(String id, String name, String email, String imageUrl, List<String> enrolledCourses, String password, String jobTitle, float rating, String review) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.imageUrl = imageUrl;
         this.enrolledCourses = enrolledCourses;
-        this.walletAddress = walletAddress;
+        this.password = password;
         this.jobTitle = jobTitle;
         this.rating = rating;
         this.review = review;
@@ -67,12 +67,12 @@ public class User {
         this.enrolledCourses = enrolledCourses;
     }
 
-    public String getWalletAddress() {
-        return walletAddress;
+    public String getPassword() {
+        return password;
     }
 
-    public void setWalletAddress(String walletAddress) {
-        this.walletAddress = walletAddress;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getJobTitle() {

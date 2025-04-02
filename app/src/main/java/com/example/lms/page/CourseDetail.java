@@ -10,29 +10,44 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lms.MainActivity;
 import com.example.lms.R;
+import com.example.lms.activity.BaseActivity;
 import com.example.lms.models.Course;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CourseDetail extends AppCompatActivity {
+public class CourseDetail extends BaseActivity {
+
+    private ActivityResultLauncher<Intent> paymentLauncher;
+    private Course course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
 
-        // Get the course ID from the intent
+        setupNavigationBar();
+
+        paymentLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK) {
+                Toast.makeText(this, "Enrollment successful!", Toast.LENGTH_LONG).show();
+                finish();
+            } else {
+                Toast.makeText(this, "Enrollment failed or canceled.", Toast.LENGTH_LONG).show();
+            }
+        });
+
         String courseId = getIntent().getStringExtra("courseId");
 
-        // For now, we'll create a dummy course. In a real app, fetch the course by ID from a database or API.
-        Course course = createDummyCourse(courseId);
+        course = createDummyCourse(courseId);
 
         // Bind the data to the views
         TextView courseTitle = findViewById(R.id.courseTitle);
@@ -75,7 +90,7 @@ public class CourseDetail extends AppCompatActivity {
             chapterTitleView.setText(chapter.getChapterTitle());
             chapterDetailsView.setText(chapter.getChapterContent().size() + " lectures • " + chapter.getTotalDuration() + "m");
 
-
+            // Populate lectures
             for (Course.Lecture lecture : chapter.getChapterContent()) {
                 View lectureView = LayoutInflater.from(this).inflate(R.layout.lecture_item, lecturesContainer, false);
                 TextView lectureTitleView = lectureView.findViewById(R.id.lectureTitle);
@@ -87,6 +102,7 @@ public class CourseDetail extends AppCompatActivity {
                 lecturesContainer.addView(lectureView);
             }
 
+            // Implement expand/collapse functionality
             chapterHeader.setOnClickListener(v -> {
                 if (lecturesContainer.getVisibility() == View.VISIBLE) {
                     lecturesContainer.setVisibility(View.GONE);
@@ -105,16 +121,19 @@ public class CourseDetail extends AppCompatActivity {
         float discountedPrice = course.getCoursePrice() * (1 - course.getDiscount() / 100);
         coursePrice.setText("$" + String.format("%.2f", discountedPrice));
         originalPrice.setText("$" + String.format("%.2f", course.getCoursePrice()));
-        // Apply strikethrough effect to original price
         originalPrice.setPaintFlags(originalPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         discountPercent.setText((int) course.getDiscount() + "% off");
 
         // Course description
         courseDescription.setText(course.getCourseDescription());
 
-
+        // Enroll button click
         enrollButton.setOnClickListener(v -> {
-            // Handle enroll action (e.g., navigate to payment screen)
+            Intent intent = new Intent(CourseDetail.this, PaymentActivity.class);
+            intent.putExtra("amount", (double) discountedPrice);
+            intent.putExtra("courseId", "67eb4e8ba1a15739ec04faf4"); // Gửi courseId
+            intent.putExtra("userId", "user_2v8QH56EvK9klfDzMPKgVy4m8iT"); // Gửi userId (thay bằng userId thực tế)
+            paymentLauncher.launch(intent);
         });
     }
 
