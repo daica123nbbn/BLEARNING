@@ -41,40 +41,40 @@
         <!-- Search -->
        <include layout="@layout/layout_search_bar"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_marginTop="20dp">-->
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Trusted by learners from" />
+<!--            <TextView-->
+<!--                android:id="@+id/textView2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Trusted by learners from" />-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="30dp">-->
 
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/microsoft_logo" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView7"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    app:srcCompat="@drawable/microsoft_logo" />-->
 
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/walmart_logo" />
-            </LinearLayout>
-        </LinearLayout>
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView8"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    app:srcCompat="@drawable/walmart_logo" />-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
 
         <!-- Danh sách khóa học -->
         <TextView
@@ -101,21 +101,21 @@
             android:layout_gravity="center"
             android:text="Show All Course" />
 
-        <!-- Đánh giá từ học viên -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:text="Testimonials"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+<!--        &lt;!&ndash; Đánh giá từ học viên &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Testimonials"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold" />-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/testimonialRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/testimonialRecyclerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:nestedScrollingEnabled="false"/>-->
     </LinearLayout>
 </ScrollView>

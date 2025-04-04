@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lms.R;
 import com.example.lms.models.Course;
-import com.example.lms.page.CourseDetail; // We'll create this activity next
+import com.example.lms.page.CourseDetail;
 
 import java.util.List;
 
@@ -43,13 +43,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         holder.courseRating.setText(String.format("%.1f", course.getAverageRating()));
         holder.ratingBar.setRating(course.getAverageRating());
         holder.ratingCount.setText("(" + course.getRatingCount() + ")");
-        holder.coursePrice.setText("$" + String.format("%.2f", course.getCoursePrice()));
+        float discountedPrice = course.getCoursePrice() * (1 - course.getDiscount() / 100);
+        holder.coursePrice.setText("$" + String.format("%.2f", discountedPrice));
 
-        // For now, we'll use a placeholder image for the thumbnail
-        // In a real app, you might use Glide or Picasso to load the image from course.getCourseThumbnail()
+        // Hiển thị ảnh
         holder.courseImage.setImageResource(Integer.parseInt(course.getCourseThumbnail()));
 
-        // Set click listener to navigate to the detailed view
+        // Xử lý sự kiện nhấn trực tiếp trong adapter
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), CourseDetail.class);
             intent.putExtra("courseId", course.getCourseId());
@@ -59,7 +59,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return courseList.size();
+        return courseList != null ? courseList.size() : 0;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

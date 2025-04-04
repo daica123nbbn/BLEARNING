@@ -8,7 +8,7 @@ public class User {
     private String email;
     private String imageUrl;
     private List<String> enrolledCourses;
-    private String password; // Thay walletAddress bằng password
+    private String password;
     private String jobTitle;
     private float rating;
     private String review;

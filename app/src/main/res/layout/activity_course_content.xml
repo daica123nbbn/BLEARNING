@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <include layout="@layout/layout_navigation_bar" />
+
+    <!-- Course Content Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Course Content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <!-- Course Start Date -->
+    <TextView
+        android:id="@+id/tv_start_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Course start date: 27/10/2025"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:paddingBottom="16dp" />
+
+    <!-- RecyclerView for Chapters and Lectures -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_course_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

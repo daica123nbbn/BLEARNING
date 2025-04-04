@@ -3,37 +3,140 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name: Unknown"
-        android:textSize="18sp"
-        android:layout_marginBottom="8dp" />
+    <!-- Header -->
 
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
+    <!-- Danh sách tùy chọn -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email: Unknown"
-        android:textSize="18sp"
-        android:layout_marginBottom="8dp" />
+        android:background="@color/design_default_color_on_primary"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/jobTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Job Title: Unknown"
-        android:textSize="18sp"
-        android:layout_marginBottom="8dp" />
+        <!-- Avatar -->
+        <ImageView
+            android:id="@+id/profile_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/circle_background"
+            android:contentDescription="User Avatar"
+            android:src="@drawable/user_icon" />
 
-    <TextView
-        android:id="@+id/enrolledCourses"
-        android:layout_width="wrap_content"
+        <!-- Tên người dùng -->
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lion Fischer"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="lionfischer@gmail.com"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Personal Information -->
+
+        <!-- My Courses -->
+        <LinearLayout
+            android:id="@+id/personal_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Personal Info Icon"
+                android:src="@drawable/list" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Personal Information"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_courses_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="My Courses Icon"
+                android:src="@drawable/online_course" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="My Courses"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Nút Back to Main Page và Logout -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enrolled Courses: 0"
-        android:textSize="18sp" />
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <!-- Back to Main Page -->
+        <Button
+            android:id="@+id/btn_back_to_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Main Page"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1976D2"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Logout -->
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#D32F2F"
+            android:padding="12dp" />
+    </LinearLayout>
 
 </LinearLayout>
